@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>intro to dom</title>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  </head>
+
+
+  <style>
+  ul
+{
+list-style-type: none;
+}
+#first{margin-top: 30px;
+        width: 30%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+  </style>
+
+  <body>
+<div id="ss" style="width : 50px; height: 20px; position: absolute; top: 0 ; left : 0;" >____x____</div>
+
+<div class="container text-center" id="first" >
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Join the Cohort 4 login party now</h3>
+    </div>
+    <div class="panel-body">
+      <form id="loginForm">
+<input id="username" type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
+<div id="msg-username"></div>
+<input type="email" class="form-control" placeholder="yourname@email.com" aria-describedby="basic-addon1">
+<div id="msg-email"></div>
+<input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
+<input type="password" class="form-control" placeholder="Repeat password" aria-describedby="basic-addon1">
+<div id="msg-password"></div>
+<input type="phone" class="form-control" placeholder="Phone Number" aria-describedby="basic-addon1">
+<div id="msg-phone"></div>
+<input type="text" class="form-control" placeholder="Country" aria-describedby="basic-addon1">
+<div id="msg-country"></div>
+<br/>
+    <button class="btn btn-info" type="button" id="signUpBtn">Submit</button>
+</form>
+    </div>
+  </div>
+</div>
+
+
+    <div id="container"></div>
+    <script>
+        var para = document.createElement("p");
+        var textnode = document.createTextNode("Hello world!");
+        para.appendChild(textnode);
+        //document.getElementById("container").appendChild(para);
+    </script>
+
+
+
+<p id="p1" style="font-size: 20px; color: black;"> This is a hover sensitive paragraph<p>
+<button class="btn-info" id="ck">Click Me!</button><div id="clickbox">-</div>
+<div id="pb" style="display: block; background-color:green; margin-right: auto; height: 20px; width: 0%"></div>
+<br/>
+
+<div id="div1" style="padding: 50px; width:80%;background-color: blue;">
+  <p>this is div1</p>
+</div>
+<div id="div2" style="padding: 50px; width:80%;background-color: red;">
+  <p>this is div2</p>
+</div>
+
+
+<br/>
+<div class="container">
+<div class="well"> This is a list that appends the current time on click, try it by clicking the button below <p>
+
+
+
+<div class="row">
+  <div class="col-md-12 text-center">
+  <button class="btn btn-danger" id='apct'>Click to append current time <span id="bb" class="badge">-</span></button>
+ </div>
+ </div>
+ <div class="row">
+ <div class="col-md-4 text-center"></div>
+ <div class="col-md-4 text-center">
+   <ul class="list-group" id="timelist">
+
+
+   </ul>
+ </div>
+ <div class="col-md-4 text-center"></div>
+ </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script type="text/javascript">
+
+window.onresize = function() {
+  x = window.innerWidth;
+  y = window.innerHeight;
+  //console.log(x,y);
+document.getElementById("ss").innerHTML=x+"X"+y;
+
+}
+var originalPText;
+p1=document.getElementById("p1") ;
+p1.onmouseover= function() {originalPText=p1.innerHTML ; p1.innerHTML="Mouse attack!"; p1.style.background="red"; p1.style.color="white";}
+p1.onmouseout = function() {p1.innerHTML= originalPText; p1.style.background="none"; p1.style.color="black";}
+
+var clicks = 0;
+var bclicks =0;
+  document.getElementById("ck").onmousedown=function() {if (clicks<=100) {
+  document.getElementById("clickbox").innerHTML=clicks;
+  document.getElementById("pb").style.width=clicks+"%";
+  clicks+=10;
+} else {
+  clicks =0;
+}
+};
+
+
+
+
+
+
+document.getElementById("apct").onclick = function() {
+bclicks++;
+document.getElementById('bb').innerHTML = bclicks;
+linode = document.createElement("LI");
+
+timenow = new Date();
+linode.innerHTML=bclicks+" "+timenow;
+//
+document.getElementById('timelist').appendChild(linode);
+//
+}
+
+
+
+window.document.getElementsByTagName('body')[0].clientWidth
+window.document.getElementsByTagName('body')[0].clientHeight
+
+// REGISTRATION FORM
+
+
+// Validation functions
+
+var validateUsername = function(name) {
+  if (name.length >= 5) {
+    return true;
+  }
+    else {
+    return false;
+    }
+}
+var   elm = document.createElement("DIV");
+
+var formAlert = function (text) {
+//var   elm = document.createElement("DIV");
+  elm.className = "alert alert-warning";
+  elm.innerHTML=text;
+  //alert(text);
+  document.getElementById().appendChild(elm);//document.getElementById("username").appendChild=elm;
+
+}
+
+
+b=document.getElementById("signUpBtn");
+
+    var submitForm = function() {
+var  form_user= document.getElementById("loginForm").elements.item(0).value;
+
+      if (validateUsername(form_user)) {
+        console.log("Register Me !"+form_user);
+    }
+      else {
+        formAlert("Username: "+form_user+" is too short!");
+
+
+        // b.className="btn-info";
+
+      }
+}
+
+  document.getElementsByTagName("form").onfocus = function () {
+    console.log("form focus");
+      b.className="btn-info";
+    };
+
+    b.onclick = function() {
+      submitForm();
+    }
+
+
+
+</script>
+
+
+  </body>
+</html>
